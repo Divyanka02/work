@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROPERTY 1</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+
+    <!-- All css files are included here. -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Owl Carousel min css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="css/core.css">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- User style -->
+    <link rel="stylesheet" href="css/custom.css">
+
+
+    <!-- Modernizr JS -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+</head>
+<style>
+    a{
+        color: white;
+    }
+   
+    body{
+        background-color: #888;
+    }
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+  }
+  html{
+      scroll-behavior: smooth;
+  }
+  /* custom scroll bar */
+  ::-webkit-scrollbar {
+      width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+      background: #888;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+  }
+  /* all similar content styling codes */
+  section{
+      padding: 100px 0;
+  }
+  .max-width{
+      max-width: 1300px;
+      padding: 0 80px;
+      margin: auto;
+  }
+  .about, .services, .skills, .teams, .contact, footer{
+      font-family: 'Poppins', sans-serif;
+  }
+  .about .about-content,
+  .services .serv-content,
+  .skills .skills-content,
+  .contact .contact-content{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+  }
+  section .title{
+      position: relative;
+      text-align: center;
+      font-size: 40px;
+      font-weight: 500;
+      margin-bottom: 60px;
+      padding-bottom: 20px;
+      font-family: 'Ubuntu', sans-serif;
+  }
+  section .title::before{
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      width: 180px;
+      height: 3px;
+      background: #111;
+      transform: translateX(-50%);
+  }
+  section .title::after{
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      font-size: 20px;
+      color: crimson;
+      padding: 0 5px;
+      background: #fff;
+      transform: translateX(-50%);
+  }
+  /* navbar styling */
+  .navbar{
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      padding: 30px 0;
+      font-family: 'Ubuntu', sans-serif;
+      transition: all 0.3s ease;
+  }
+  .navbar.sticky{
+      padding: 15px 0;
+      background: crimson;
+  }
+  .navbar .max-width{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  .logo a{
+      color: #fff;
+      font-size: 35px;
+      font-weight: 600;
+  }
+  .logo a span{
+      color: crimson;
+      transition: all 0.3s ease;
+  }
+ .sticky .logo a span{
+      color: #fff;
+  }
+  .navbar .menu li{
+      list-style: none;
+      display: inline-block;
+  }
+  .navbar .menu li a{
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 25px;
+      transition: color 0.3s ease;
+  }
+  .navbar .menu li a:hover{
+      color: crimson;
+  }
+  .navbar.sticky .menu li a:hover{
+      color: #fff;
+  }
+  /* menu btn styling */
+  .menu-btn{
+      color: #fff;
+      font-size: 23px;
+      cursor: pointer;
+      display: none;
+  }
+  .scroll-up-btn{
+      position: fixed;
+      height: 45px;
+      width: 42px;
+      background: crimson;
+      right: 30px;
+      bottom: 10px;
+      text-align: center;
+      line-height: 45px;
+      color: #fff;
+      z-index: 9999;
+      font-size: 30px;
+      border-radius: 6px;
+      border-bottom-width: 2px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+  }
+  .scroll-up-btn.show{
+      bottom: 30px;
+      opacity: 1;
+      pointer-events: auto;
+  }
+  .scroll-up-btn:hover{
+      filter: brightness(90%);
+  }
+  /* home section styling */
+  .home{
+      display: flex;
+     /* background: url("bg3.jpg") no-repeat center;*/
+     background-color: #04112c;
+      height: 100vh;
+      color: #fff;
+      min-height: 500px;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: 'Ubuntu', sans-serif;
+  }
+  .home .max-width{
+    width: 100%;
+    display: flex;
+  }
+  .home .max-width .row{
+    margin-right: 0;
+  }
+  .home .home-content .text-1{
+      font-size: 27px;
+  }
+  .home .home-content .text-2{
+      font-size: 75px;
+      font-weight: 600;
+      margin-left: -3px;
+  }
+  .home .home-content .text-3{
+      font-size: 40px;
+      margin: 5px 0;
+  }
+  .home .home-content .text-3 span{
+      color: crimson;
+      font-weight: 500;
+  }
+  .home .home-content a{
+      display: inline-block;
+      background: crimson;
+      color: #fff;
+      font-size: 25px;
+      padding: 12px 36px;
+      margin-top: 20px;
+      font-weight: 400;
+      border-radius: 6px;
+      border: 2px solid crimson;
+      transition: all 0.3s ease;
+  }
+  .home .home-content a:hover{
+      color: crimson;
+      background: none;
+  }
+     /* about section styling */
+  .about .title::after{
+      content: "Details";
+  }
+  .about .about-content .left{
+      width: 45%;
+  }
+  .about .about-content .left video{
+      height: 400px;
+      width: 400px;
+      object-fit: cover;
+      border-radius: 6px;
+  }
+  .about .about-content .right{
+      width: 55%;
+  }
+  .about .about-content .right .text{
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 10px;
+  }
+  .about .about-content .right .text span{
+      color: crimson;
+  }
+  .about .about-content .right p{
+      text-align: justify;
+  }
+  .about .about-content .right a{
+      display: inline-block;
+      background: crimson;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 10px 30px;
+      margin-top: 20px;
+      border-radius: 6px;
+      border: 2px solid crimson;
+      transition: all 0.3s ease;
+  }
+  .about .about-content .right a:hover{
+      color: crimson;
+      background: none;
+  }
+  
+ 
+  /* contact section styling */
+  .contact .title::after{
+      content: "get in touch";
+  }
+ 
+  .contact .contact-content .text{
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+  }
+  .contact .contact-content .left
+  {
+      justify-content: center;
+      align-items: center;
+      margin-left: 480px;
+      font-size: 20px;
+  }
+  .contact .contact-content .left p{
+      text-align: justify;
+  }
+  .contact .contact-content .left .icons{
+      margin: 10px 0;
+  }
+  .contact .contact-content .row{
+      display: flex;
+      height: 65px;
+      align-items: center;
+  }
+  .contact .contact-content .row .info{
+      margin-left: 30px;
+  }
+  .contact .contact-content .row i{
+      font-size: 25px;
+      color: crimson;
+  }
+  .contact .contact-content .info .head{
+      font-weight: 500;
+      color: black;
+  }
+  .contact .contact-content .info .sub-title{
+      color: #333;
+  }
+  
+  /* footer section styling */
+  footer{
+      background: #111;
+      padding: 15px 23px;
+      color: #fff;
+      text-align: center;
+  }
+  footer span a{
+      color: crimson;
+      text-decoration: none;
+  }
+  footer span a:hover{
+      text-decoration: underline;
+  }
+  /* responsive media query start */
+  @media (max-width: 1104px) {
+      .about .about-content .left video{
+          height: 350px;
+          width: 350px;
+      }
+  }
+  @media (max-width: 991px) {
+      .max-width{
+          padding: 0 50px;
+      }
+  }
+  @media (max-width: 947px){
+      .menu-btn{
+          display: block;
+          z-index: 999;
+      }
+      .menu-btn i.active:before{
+          content: "\f00d";
+      }
+      .navbar .menu{
+          position: fixed;
+          height: 100vh;
+          width: 100%;
+          left: -100%;
+          top: 0;
+          background: #111;
+          text-align: center;
+          padding-top: 80px;
+          transition: all 0.3s ease;
+      }
+      .navbar .menu.active{
+          left: 0;
+      }
+      .navbar .menu li{
+          display: block;
+      }
+      .navbar .menu li a{
+          display: inline-block;
+          margin: 20px 0;
+          font-size: 25px;
+      }
+      .home .home-content .text-2{
+          font-size: 70px;
+      }
+      .home .home-content .text-3{
+          font-size: 35px;
+      }
+      .home .home-content a{
+          font-size: 23px;
+          padding: 10px 30px;
+      }
+      .max-width{
+          max-width: 930px;
+      }
+      .about .about-content .column{
+          width: 100%;
+      }
+      .about .about-content .left{
+          display: flex;
+          justify-content: center;
+          margin: 0 auto 60px;
+      }
+      .about .about-content .right{
+          flex: 100%;
+      }
+      .services .serv-content .card{
+          width: calc(50% - 10px);
+          margin-bottom: 20px;
+      }
+      .skills .skills-content .column,
+      .contact .contact-content .column{
+          width: 100%;
+          margin-bottom: 35px;
+      }
+  }
+  @media (max-width: 690px) {
+      .max-width{
+          padding: 0 23px;
+      }
+      .home .home-content .text-2{
+          font-size: 60px;
+      }
+      .home .home-content .text-3{
+          font-size: 32px;
+      }
+      .home .home-content a{
+          font-size: 20px;
+      }
+      .services .serv-content .card{
+          width: 100%;
+      }
+      .slider__container{
+          height: 100vh;
+      }
+      .contact .contact-content .left
+  {
+     
+      margin-left: 100px;
+  }
+  }
+  @media (max-width: 500px) {
+      .home .home-content .text-2{
+          font-size: 50px;
+      }
+      .home .home-content .text-3{
+          font-size: 27px;
+      }
+      .about .about-content .right .text,
+      .skills .skills-content .left .text{
+          font-size: 19px;
+      }
+     
+      .scroll-up-btn{
+          right: 15px;
+          bottom: 15px;
+          height: 38px;
+          width: 35px;
+          font-size: 23px;
+          line-height: 38px;
+      } 
+  }
+</style>
+<body>
+    <!-- Body main wrapper start -->
+    <div class="wrapper" style="background-color: #01142c;color:white;">
+        <!-- Start Header Style -->
+        <header id="htc__header" class="htc__header__area header--one">
+            <!-- Start Mainmenu Area -->
+            <div id="sticky-header-with-topbar" class="mainmenu__wrap sticky__header">
+                <div class="container">
+                    <div class="row">
+                        <div class="menumenu__container clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5"> 
+                                <div class="logo"><a href="#">Property<span> for sell</span></a></div>
+                            </div>
+                            <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
+                                <nav class="main__menu__nav hidden-xs hidden-sm" >
+                                    <ul class="main__menu" >
+                                        <li class="drop"><a href="index.html" style="color:white">Home</a></li>
+                                        <li class="drop" ><a href="#about" style="color:white">About us</a>
+                                           
+                                              
+                                        </li>
+                                        <li class="drop"><a href="#" style="color:white">Location</a>
+                                           
+                                        </li>
+                                       
+                                        <li><a href="#contact" style="color:white">contact</a></li>
+                                    </ul>
+                                </nav>
+
+                                <div class="mobile-menu clearfix visible-xs visible-sm">
+                                    <nav id="mobile_dropdown">
+                                        <ul>
+                                            <li><a href="index.html" style="color:white">Home</a></li>
+                                            <li><a href="#contact" style="color:white">Contact us</a></li>
+                                            <li><a href="#" style="color:white">Location</a>
+                                              
+                                            </li>
+                                            <li><a href="#about" style="color:white">About us</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>  
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="mobile-menu-area"></div>
+                </div>
+            </div>
+            <!-- End Mainmenu Area -->
+        </header>
+        <!-- End Header Area -->
+       
+            
+    
+        <!-- End Offset Wrapper -->
+          <!-- Start Slider Area -->
+          <div class="slider__container slider--one bg__cat--3" style="background-color: rgb(166, 188, 224);color:white;height: 100vh">
+            <div class="slide__container slider__activation__wrap owl-carousel">
+                <!-- Start Single Slide -->
+                <div class="single__slide animation__style01 slider__fixed--height">
+                    <div class="container">
+                        <div class="row align-items__center">
+                            <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
+                                <div class="slide">
+                                    <div class="slider__inner">
+                                        <h2>GET PROPERTY</h2>
+                                        <h1>Build your dream house</h1>
+                                        <div class="cr__btn" >
+                                            <a href="#contact" style="background-color: #04112c">contact us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
+                                <div class="slide__thumb">
+                                    <img src="p1.jpg"slider images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Slide -->
+                <!-- Start Single Slide -->
+                <div class="single__slide animation__style01 slider__fixed--height">
+                    <div class="container">
+                        <div class="row align-items__center">
+                            <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
+                                <div class="slide">
+                                    <div class="slider__inner">
+                                        <h2>GET PROPERTY</h2>
+                                        <h1>NEAR GAI GHAT</h1>
+                                        <div class="cr__btn">
+                                            <a href="#contact">Contact us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
+                                <div class="slide__thumb">
+                                    <img src="p1.jpg"slider images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Slide -->
+            </div>
+        </div>
+        <!-- Start Slider Area -->
+          <!-- jquery latest version -->
+    <script src="js/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="js/plugins.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Waypoints.min.js. -->
+    <script src="js/waypoints.min.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/main.js"></script>
+     <!-- about section start -->
+     <section class="about" id="about" style="background-color: black;">
+        <div class="max-width">
+            <h2 class="title" style="color: white;">KONW MORE</h2>
+            <div class="about-content">
+                <div class="column left">
+                    <video src="v1.mp4"  controls muted></video>
+                </div>
+                <div class="column right">
+                    <div class="text">Property near Gai Ghat</div>
+                    <p style="color: white;">This is a commercial Property for sell near gai ghat , for further information kindly contact us on 
+                    </p><h3 style="color: white;">8709345054</h3>
+                    <a href="#">LOCATION</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="max-width">
+          
+            <div class="about-content">
+                <div class="column left">
+                    <video src="v2.mp4"  controls muted></video>
+                </div>
+                <div class="column right">
+                    <div class="text">For sell</div>
+                    <p style="color: white;">Kindly visit the plot or contact us for further information or prefer the video for more details !!
+                    </p>
+                    <a href="#">LOCATION</a>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+  
+    <!-- contact section start -->
+    <section class="contact" id="contact" style="background-color: white;">
+        <div class="max-width">
+            <h2 class="title" style="color: black;">Contact me</h2>
+            <div class="contact-content">
+                <div class="column left">
+                    <div class="text">Get in Touch</div>
+                    <p>Please feel free to Contact me.</p>
+                    <div class="icons">
+                        <div class="row">
+                           
+                            <div class="info">
+                                <div class="head">> Name</div>
+                                <div class="sub-title">Brijpal Kumar Jaiswal</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="info">
+                                <div class="head">> Address</div>
+                                <div class="sub-title">Patna city, Gai Ghat , Bihar</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                           
+                            <div class="info">
+                                <div class="head">> Phone number</div>
+                                <div class="sub-title">8709345054</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+   
+</body>
+ <!-- footer section start -->
+ <footer>
+    <span>Created By <a href="#">Divyanka jaiswal</a></span>
+</footer>
+
+</html>
